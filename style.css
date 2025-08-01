@@ -74,6 +74,9 @@ body * {
   width: 64px;
 }
 #switch button {
+
+  animation: slide-back 0.4s forwards;
+
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
@@ -90,10 +93,11 @@ body * {
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
 
-
+#switch button:hover {
+  outline: 8px solid var(--highlight-color)
 }
 
 #switch span {
@@ -181,4 +185,35 @@ ul li a:hover {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
+}
+
+/* media queries */
+@media (min-widhth: 700px) {
+  :root {
+    --bg-url: url(./background.jpg);
+  }
+
+  .light {
+    --bg-url: url(./background-light.jpg);
+  }
+
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back{
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0%;
+  }
 }
